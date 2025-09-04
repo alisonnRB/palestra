@@ -1,18 +1,7 @@
-import tkinter as tk
+from base64 import b64encode, b64decode
 
-def update_label():
-    """Updates the label text with content from the entry field."""
-    user_input = entry_field.get()
-    label.config(text=f"Hello, {user_input}!")
-
-# Create the main window
-root = tk.Tk()
-root.title("Tkinter Example")
-root.geometry("400x200") # Set initial window size
-
-# Create a label widget
-label = tk.Label(root, text="HELLO WORLD!", font=("Arial", 16))
-label.pack(pady=10) # Add padding around the label
-
-# Start the Tkinter event loop
-root.mainloop()
+input_str = "Hello, World!"
+encoded_bytes = b64encode(input_str.encode('utf-8'))
+encoded_str = encoded_bytes.decode('utf-8')
+print(f"Encoded: {encoded_str}")
+print(f"Decoded: {b64decode(encoded_str).decode('utf-8')}")
